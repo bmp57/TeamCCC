@@ -6,11 +6,16 @@ import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -21,6 +26,7 @@ import com.example.android.navigationdrawerexample.R;
 import edu.nau.CS477.Classes.DatabaseHandler;
 import edu.nau.CS477.Contacts.ContactAdapter;
 import edu.nau.CS477.Contacts.ContactObject;
+import edu.nau.CS477.Contacts.NewContactActivity;
 
 /**
  * Fragment that appears in the "content_frame"
@@ -36,6 +42,15 @@ public class ContactsFragment extends Fragment {
     ContactAdapter contactAdapter = null;
     //Init the DatabaseHandler used to fetch contacts
     private DatabaseHandler db;
+    
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private CharSequence mDrawerTitle;
+    private CharSequence mTitle;
+    private String[] mMenuItems;
+    
+    private ListView listview;
+    private View mNewContactButton;
     
     //Empty constructor
     public ContactsFragment() {   	
@@ -67,8 +82,16 @@ public class ContactsFragment extends Fragment {
 			contactAdapter = new ContactAdapter(getActivity(), R.layout.contacts_list_item, db.getAllContacts());
 			
 			db.close();
+			mNewContactButton = getActivity().findViewById(R.id.new_contact);
+			mNewContactButton.setOnClickListener(new View.OnClickListener() {
+	            @Override
+				public void onClick(View v) {
+	            	Intent intent = new Intent(getActivity(), NewContactActivity.class);
+	                startActivity(intent);
+	            }
+	        });
 			//fetch the listview to be filled with contacts
-	        final ListView listview = (ListView) getActivity().findViewById(R.id.list_container);
+	        listview = (ListView) getActivity().findViewById(R.id.list_container);
 	        //associate the adapter
 	        listview.setAdapter(contactAdapter); 
 	        //there isn't actually any filtering logic yet
@@ -88,21 +111,53 @@ public class ContactsFragment extends Fragment {
 			        	//TODO: add logic, pass co along to the selected option
 			            @Override
 			            public void onClick(DialogInterface dialog, int dialogPosition) {
+			            	Bundle args = new Bundle();			                
+			            	Fragment fragment = null;
+			            	
 			                switch(dialogPosition){
 			                //Open chat window with selected contact
 			                case 0:
+			                	fragment = new ChatFragment();
+			                    args.putInt(ChatFragment.MENU_ITEM_NUMBER,1);
+			                    fragment.setArguments(args);
 			                	break;
 		                	//Open file browser to send file to selected contact 
 			                case 1:
+			                	 fragment = new FileBrowserFragment();
+			                     args.putInt(FileBrowserFragment.MENU_ITEM_NUMBER, 2);
+			                     fragment.setArguments(args);
 			                	break;
 		                	//See if there are any currently transferring files to selected contact
 			                case 2:
+			                	fragment = new FTPTransferFragment();
+			                    args.putInt(FTPTransferFragment.MENU_ITEM_NUMBER, 3);
+			                    fragment.setArguments(args);
 			                	break;
 		                	//Edit the contact
 			                case 3:
 			                	break;
 		                	default:
 		                		break;
+			                }
+			                mTitle = mDrawerTitle = getActivity().getTitle();
+			                mMenuItems = getActivity().getResources().getStringArray(R.array.main_navigation_menu);
+			                mDrawerLayout = (DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
+			                mDrawerList = (ListView) getActivity().findViewById(R.id.left_drawer);
+			                
+			                if (fragment != null) {
+			                	
+			                    FragmentManager fragmentManager = getFragmentManager();
+			                    fragmentManager.beginTransaction()
+			                            .replace(R.id.content_frame, fragment).commit();
+			         
+			                    // update selected item and title, then close the drawer
+			                    mDrawerList.setItemChecked(dialogPosition, true);
+			                    mDrawerList.setSelection(dialogPosition);
+			                    getActivity().setTitle(mMenuItems[dialogPosition]);
+			                    mDrawerLayout.closeDrawer(mDrawerList);
+			                } else {
+			                    // error in creating fragment
+			                    Log.e("MainActivity", "Error in creating fragment");
 			                }
 			            }
 			        });
@@ -116,5 +171,7 @@ public class ContactsFragment extends Fragment {
     		Log.d("Error:",e.toString());
     	}
     }
+    
+    
 }
 

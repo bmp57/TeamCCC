@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   Copyright 2013 The Android Open Source Project
 
@@ -12,10 +13,12 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  -->
+-->
 
 <resources>
+
     <string name="app_name">CS477 FTP Chat Client</string>
+
     <string-array name="main_navigation_menu">
         <item>Contacts</item>
         <item>Chat</item>
@@ -23,13 +26,15 @@
         <item>FTP Transfers</item>
         <item>Settings</item>
     </string-array>
+
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>
-    
-    
-    
     <string name="pickerNewContactHeader" msgid="7750705279843568147">"Create new contact"</string>
     <string name="pickerNewContactText" msgid="6166997164401048211">"Create new contact"</string>
-    
+    <string name="pickerDeleteAllContacts">"Delete All Contacts"</string>
+    <string name="title_activity_contacts">ContactsActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

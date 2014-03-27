@@ -19,6 +19,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:id="@+id/delete_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dip"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:paddingStart="16dip"
+        android:paddingEnd="16dip">
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:duplicateParentState="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            style="@android:style/Widget.Holo.Light.ActionBar.TabText"
+            android:text="@string/pickerDeleteAllContacts"/>
+    </LinearLayout>
 </RelativeLayout>
 
 

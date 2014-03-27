@@ -2,32 +2,29 @@ package edu.nau.CS477.Fragments;
 
 
 
-import java.util.List;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.android.navigationdrawerexample.R;
 
-import edu.nau.CS477.Classes.DatabaseHandler;
-import edu.nau.CS477.Classes.MainActivity;
+import edu.nau.CS477.Contacts.ContactObject;
 
 /**
  * Fragment that appears in the "content_frame"
  */
 public class ChatFragment extends Fragment {
     public static final String MENU_ITEM_NUMBER = "menu_number";
-
+    ContactObject co;
+    
     public ChatFragment() {
         
     }
-    
+    public ChatFragment(ContactObject co){
+    	this.co = co;
+    }
         
         
     @Override
