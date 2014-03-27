@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import edu.nau.CS477.Contacts.ContactObject;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
-	// All Static variables
+
     // Database Version
     private static final int DATABASE_VERSION = 1;
  
@@ -77,21 +77,17 @@ public class DatabaseHandler extends SQLiteOpenHelper{
             cursor.moveToFirst();
      
         ContactObject contact = new ContactObject(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2),cursor.getString(3));
-        // return contact
+
         return contact;
     }
      
     // Getting All Contacts
     public ArrayList<ContactObject> getAllContacts() {
     	ArrayList<ContactObject> contactList = new ArrayList<ContactObject>();
-        // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
-     
-        SQLiteDatabase db = this.getWritableDatabase();
+
+    	SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.query(TABLE_CONTACTS, null, null, null, null, null, FIRST_NAME + " ASC");
-        //Cursor cursor = db.rawQuery(selectQuery, null);
-     
-        // looping through all rows and adding to list
+        //Loop through contacts and create an ArrayList of each SQLite entry
         if (cursor.moveToFirst()) {
             do {
                 ContactObject contact = new ContactObject();
@@ -100,7 +96,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
                 contact.setLastName(cursor.getString(2));
                 contact.setFullName(cursor.getString(3));
                 contact.setEmailAddr(cursor.getString(4));
-                // Adding contact to list
+             
                 contactList.add(contact);
             } while (cursor.moveToNext());
         }
@@ -119,7 +115,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         // return count
         return cursor.getCount();
     }
-    // Updating single contact
+    //TODO: this will probably be changed to accept which column to update rather than the whole entry
     public int updateContact(ContactObject contact){
     	SQLiteDatabase db = this.getWritableDatabase();
     	 

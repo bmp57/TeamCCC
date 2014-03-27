@@ -12,54 +12,36 @@ import android.widget.TextView;
 import com.example.android.navigationdrawerexample.R;
 
 public class ContactAdapter extends ArrayAdapter<ContactObject> {
+	
+	private ArrayList<ContactObject> contacts;
 
-	// declaring our ArrayList of items
-	private ArrayList<ContactObject> objects;
-
-	/* here we must override the constructor for ArrayAdapter
-	* the only variable we care about now is ArrayList<Item> objects,
-	* because it is the list of objects we want to display.
-	*/
-	public ContactAdapter(Context context, int textViewResourceId, ArrayList<ContactObject> objects) {
-		super(context, textViewResourceId, objects);
-		this.objects = objects;
+	// Pass along an ArrayList<ContactObject> to the ContactAdapter
+	public ContactAdapter(Context context, int textViewResourceId, ArrayList<ContactObject> contacts) {
+		super(context, textViewResourceId, contacts);
+		this.contacts = contacts;
 	}
 
-	/*
-	 * we are overriding the getView method here - this is what defines how each
-	 * list item will look.
-	 */
+	//Define view
 	public View getView(int position, View convertView, ViewGroup parent){
 
-		// assign the view we are converting to a local variable
-		View v = convertView;
+		View view = convertView;
 
-		// first check to see if the view is null. if so, we have to inflate it.
-		// to inflate it basically means to render, or show, the view.
-		if (v == null) {
+		// if view is null, inflate the layout
+		if (view == null) {
 			LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = inflater.inflate(R.layout.contacts_list_item, null);
+			view = inflater.inflate(R.layout.contacts_list_item, null);
 		}
 
-		/*
-		 * Recall that the variable position is sent in as an argument to this method.
-		 * The variable simply refers to the position of the current object in the list. (The ArrayAdapter
-		 * iterates through the list we sent it)
-		 * 
-		 * Therefore, i refers to the current Item object.
-		 */
-		ContactObject i = objects.get(position);
+		//get the ContactObject at position
+		ContactObject i = contacts.get(position);
 
 		if (i != null) {
 
-			// This is how you obtain a reference to the TextViews.
-			// These TextViews are created in the XML files we defined.
+			//References to the TextView items in contact_list_item
+			TextView tvFullName = (TextView) view.findViewById(R.id.fullName);
+			TextView tvEmail = (TextView) view.findViewById(R.id.emailAddr);
 
-			TextView tvFullName = (TextView) v.findViewById(R.id.fullName);
-			TextView tvEmail = (TextView) v.findViewById(R.id.emailAddr);
-
-			// check to see if each individual textview is null.
-			// if not, assign some text!
+			//fill TextView with items from ContactObject
 			if (tvFullName != null){
 				tvFullName.setText(i.getFullName());
 			}
@@ -69,8 +51,8 @@ public class ContactAdapter extends ArrayAdapter<ContactObject> {
 			
 		}
 
-		// the view must be returned to our activity
-		return v;
+		// return to the activity
+		return view;
 
 	}
 
