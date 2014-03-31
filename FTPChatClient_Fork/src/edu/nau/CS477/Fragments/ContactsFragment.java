@@ -10,12 +10,10 @@ import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -23,7 +21,7 @@ import android.widget.ListView;
 
 import com.example.android.navigationdrawerexample.R;
 
-import edu.nau.CS477.Classes.DatabaseHandler;
+import edu.nau.CS477.Classes.ContactsDatabaseHandler;
 import edu.nau.CS477.Contacts.ContactAdapter;
 import edu.nau.CS477.Contacts.ContactObject;
 import edu.nau.CS477.Contacts.NewContactActivity;
@@ -41,7 +39,7 @@ public class ContactsFragment extends Fragment {
     //Init the ContactAdapter used to display contacts from the ArrayList contacts
     ContactAdapter contactAdapter = null;
     //Init the DatabaseHandler used to fetch contacts
-    private DatabaseHandler db;
+    private ContactsDatabaseHandler db;
     
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -77,7 +75,7 @@ public class ContactsFragment extends Fragment {
     	super.onCreate(savedInstanceState);
     	try{
     		//init the database handler
-			db = new DatabaseHandler(getActivity()); 
+			db = new ContactsDatabaseHandler(getActivity()); 
 			//init the contactAdapter (used to fill the ListView with the fields we're interested in)
 			contactAdapter = new ContactAdapter(getActivity(), R.layout.contacts_list_item, db.getAllContacts());
 			
@@ -103,7 +101,7 @@ public class ContactsFragment extends Fragment {
 		        {
 		                
 			        //get the ContactObject of the clicked contact
-			        ContactObject co = (ContactObject)listview.getItemAtPosition(position);
+			        final ContactObject co = (ContactObject)listview.getItemAtPosition(position);
 			        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 			        builder.setTitle(co.getFullName());
 			        //add click listeners to the dialog options
@@ -119,8 +117,10 @@ public class ContactsFragment extends Fragment {
 			                case 0:
 			                	fragment = new ChatFragment();
 			                    args.putInt(ChatFragment.MENU_ITEM_NUMBER,1);
+			                    args.putParcelable("contactObject", co);
 			                    fragment.setArguments(args);
-			                	break;
+			                    break;
+			                	
 		                	//Open file browser to send file to selected contact 
 			                case 1:
 			                	 fragment = new FileBrowserFragment();

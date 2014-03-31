@@ -58,18 +58,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        DatabaseHandler db = new DatabaseHandler(this);
-        
+        ContactsDatabaseHandler contactDB = new ContactsDatabaseHandler(this);
+        ChatsDatabaseHandler chatDB = new ChatsDatabaseHandler(this);
         /**
          * CRUD Operations
          * */
         // Inserting Contacts
-        if(db.getAllContacts().size() == 0){
+        if(contactDB.getAllContacts().size() == 0){
 	        Log.d("Insert: ", "Inserting ..");
-	        db.addContact(new ContactObject("JD","Knapp","jdk85@nau.edu"));
-	        db.addContact(new ContactObject("Ben","Olayinka","bo97@nau.edu"));
-	        db.addContact(new ContactObject("Brandon","Phillips","bmp57@nau.edu"));
-	        db.addContact(new ContactObject("Mike","Stek","mikestek@nau.edu"));
+	        contactDB.addContact(new ContactObject("JD","Knapp","jdk85@nau.edu"));
+	        contactDB.addContact(new ContactObject("Ben","Olayinka","bo97@nau.edu"));
+	        contactDB.addContact(new ContactObject("Brandon","Phillips","bmp57@nau.edu"));
+	        contactDB.addContact(new ContactObject("Mike","Stek","mikestek@nau.edu"));
         }
         else{
         	//Log.d("INSERT: ", "Not performed, DB is populated");
@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
         /*
         // How to read contacts and print to log
         Log.d("Reading: ", "Reading all contacts..");
-        ArrayList<ContactObject> contacts = db.getAllContacts();      
+        ArrayList<ContactObject> contacts = contactDB.getAllContacts();      
          
         for (ContactObject cn : contacts) {
             String log = "Id: "+cn.getId()+" ,Name: " + cn.getFullName() + " ,Email: " + cn.getEmailAddr();
@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
         Log.d("Name: ", log);
         }
         */
-        db.close();
+        contactDB.close();
         
         mTitle = mDrawerTitle = getTitle();
         mMenuItems = getResources().getStringArray(R.array.main_navigation_menu);

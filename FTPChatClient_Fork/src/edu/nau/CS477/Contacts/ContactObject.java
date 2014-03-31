@@ -2,7 +2,10 @@ package edu.nau.CS477.Contacts;
 
 import java.io.Serializable;
 
-public class ContactObject implements Serializable{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ContactObject implements Serializable, Parcelable{
 
 	private static final long serialVersionUID = -8386098666918666048L;
 	private int id;
@@ -10,6 +13,7 @@ public class ContactObject implements Serializable{
 	private String firstName = null;
 	private String lastName = null;
 	private String emailAddr = null;
+	private String currentIP = null;
 	
 	/*Should we include a string array for permissioning?
 	 * Something where we'd allow you to edit your contact and add
@@ -75,5 +79,25 @@ public class ContactObject implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getCurrentIP() {
+		return currentIP;
+	}
+
+	public void setCurrentIP(String currentIP) {
+		this.currentIP = currentIP;
 	}
 }
