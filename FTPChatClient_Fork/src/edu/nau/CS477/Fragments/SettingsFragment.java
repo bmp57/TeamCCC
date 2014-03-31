@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.android.navigationdrawerexample.R;
 
-import edu.nau.CS477.Classes.DatabaseHandler;
+import edu.nau.CS477.Classes.ContactsDatabaseHandler;
 import edu.nau.CS477.Contacts.ContactObject;
 
 /**
@@ -21,7 +21,7 @@ import edu.nau.CS477.Contacts.ContactObject;
 public class SettingsFragment extends Fragment {
     public static final String MENU_ITEM_NUMBER = "menu_number";
     private View mDeleteContactsButton;
-    private DatabaseHandler db;
+    private ContactsDatabaseHandler db;
     public SettingsFragment() {
         
     }
@@ -48,7 +48,7 @@ public class SettingsFragment extends Fragment {
             	    public void onClick(DialogInterface dialog, int which) {
             	        switch (which){
             	        case DialogInterface.BUTTON_POSITIVE:
-            	        	db = new DatabaseHandler(getActivity());
+            	        	db = new ContactsDatabaseHandler(getActivity());
             				for(ContactObject co : db.getAllContacts()){
             					db.deleteContact(co);
             				}
