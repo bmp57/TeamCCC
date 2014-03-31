@@ -41,6 +41,10 @@
             android:name="edu.nau.CS477.Contacts.NewContactActivity"
             android:label="@string/title_activity_contacts" >
         </activity>
+        <activity
+            android:name="edu.nau.CS477.Classes.FileDialog"
+            android:label="@string/title_file_dialog" >
+        </activity>
     </application>
 
 </manifest>

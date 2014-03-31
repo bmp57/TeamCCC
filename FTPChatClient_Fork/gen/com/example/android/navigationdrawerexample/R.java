@@ -9,12 +9,23 @@ package com.example.android.navigationdrawerexample;
 
 public final class R {
     public static final class array {
-        public static final int main_navigation_menu=0x7f050000;
+        public static final int main_navigation_menu=0x7f060000;
     }
     public static final class attr {
     }
     public static final class color {
-        public static final int gray=0x7f060000;
+        public static final int gray=0x7f070000;
+    }
+    public static final class dimen {
+        /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
+         */
+        public static final int activity_horizontal_margin=0x7f040000;
+        public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
         public static final int action_search=0x7f020000;
@@ -28,82 +39,102 @@ public final class R {
         public static final int presence_busy=0x7f020008;
         public static final int presence_offline=0x7f020009;
         public static final int presence_online=0x7f02000a;
+        public static final int rounded_shadow_button=0x7f02000b;
     }
     public static final class id {
-        public static final int button1=0x7f080023;
-        public static final int chatET=0x7f080006;
-        public static final int content_frame=0x7f080001;
-        public static final int delete_contacts=0x7f080024;
-        public static final int drawer_layout=0x7f080000;
-        public static final int emailAddr=0x7f08000f;
-        public static final int fdButtonCancel=0x7f080019;
-        public static final int fdButtonCreate=0x7f08001a;
-        public static final int fdButtonNew=0x7f080014;
-        public static final int fdButtonSelect=0x7f080015;
-        public static final int fdEditTextFile=0x7f080018;
-        public static final int fdLinearLayoutCreate=0x7f080016;
-        public static final int fdLinearLayoutList=0x7f080012;
-        public static final int fdLinearLayoutSelect=0x7f080013;
-        public static final int fdrowimage=0x7f08001c;
-        public static final int fdrowtext=0x7f08001d;
-        public static final int fileSendButton=0x7f080008;
-        public static final int fullName=0x7f08000e;
-        public static final int left_drawer=0x7f080002;
-        public static final int linearLayout2=0x7f080005;
-        public static final int listMessages=0x7f080004;
-        public static final int list_container=0x7f08000a;
-        public static final int list_image=0x7f08000d;
-        public static final int new_contact=0x7f08000b;
-        public static final int path=0x7f08001b;
-        public static final int relativeLayout01=0x7f080011;
-        public static final int screen_detail=0x7f08001e;
-        public static final int search_view=0x7f080009;
-        public static final int sendBtn=0x7f080007;
-        public static final int status=0x7f080010;
-        public static final int textView1=0x7f08001f;
-        public static final int textView2=0x7f080021;
-        public static final int textViewFileSend=0x7f080020;
-        public static final int textViewFilename=0x7f080017;
-        public static final int textViewNameSend=0x7f080022;
-        public static final int thumbnail=0x7f08000c;
-        public static final int toET=0x7f080003;
+        public static final int CancelBtn=0x7f09000c;
+        public static final int ChatMessageInput=0x7f09000e;
+        public static final int SubmitBtn=0x7f09000b;
+        public static final int action_settings=0x7f090032;
+        public static final int bottomButtons=0x7f09000a;
+        public static final int button1=0x7f09001f;
+        public static final int chatET=0x7f09000f;
+        public static final int chat_date_time=0x7f09002f;
+        public static final int chat_image=0x7f09002e;
+        public static final int chat_message_content=0x7f090030;
+        public static final int chat_thumbnail=0x7f09002d;
+        public static final int container=0x7f090003;
+        public static final int content_frame=0x7f090001;
+        public static final int delete_contacts=0x7f090031;
+        public static final int drawer_layout=0x7f090000;
+        public static final int emailAddr=0x7f090018;
+        public static final int emailEdit=0x7f090009;
+        public static final int emailText=0x7f090008;
+        public static final int fdButtonCancel=0x7f090028;
+        public static final int fdButtonCreate=0x7f090029;
+        public static final int fdButtonNew=0x7f090023;
+        public static final int fdButtonSelect=0x7f090024;
+        public static final int fdEditTextFile=0x7f090027;
+        public static final int fdLinearLayoutCreate=0x7f090025;
+        public static final int fdLinearLayoutList=0x7f090021;
+        public static final int fdLinearLayoutSelect=0x7f090022;
+        public static final int fdrowimage=0x7f09002b;
+        public static final int fdrowtext=0x7f09002c;
+        public static final int fileSendButton=0x7f090011;
+        public static final int firstNameEdit=0x7f090005;
+        public static final int firstNameText=0x7f090004;
+        public static final int fullName=0x7f090017;
+        public static final int lastNameEdit=0x7f090007;
+        public static final int lastNameText=0x7f090006;
+        public static final int left_drawer=0x7f090002;
+        public static final int list_container=0x7f090013;
+        public static final int list_image=0x7f090016;
+        public static final int list_messages=0x7f09000d;
+        public static final int new_contact=0x7f090014;
+        public static final int path=0x7f09002a;
+        public static final int relativeLayout01=0x7f090020;
+        public static final int screen_detail=0x7f09001a;
+        public static final int search_view=0x7f090012;
+        public static final int sendBtn=0x7f090010;
+        public static final int status=0x7f090019;
+        public static final int textView2=0x7f09001d;
+        public static final int textViewChooseFile=0x7f09001b;
+        public static final int textViewFileSend=0x7f09001c;
+        public static final int textViewFilename=0x7f090026;
+        public static final int textViewNameSend=0x7f09001e;
+        public static final int thumbnail=0x7f090015;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int chat_fragment=0x7f030001;
-        public static final int contacts_fragment=0x7f030002;
-        public static final int contacts_list_item=0x7f030003;
-        public static final int drawer_list_item=0x7f030004;
-        public static final int file_browser_fragment=0x7f030005;
-        public static final int file_dialog_main=0x7f030006;
-        public static final int file_dialog_row=0x7f030007;
-        public static final int file_send_fragment_screen_detail=0x7f030008;
-        public static final int ftp_transfers_fragment=0x7f030009;
-        public static final int settings_fragment=0x7f03000a;
+        public static final int activity_new_contacts=0x7f030001;
+        public static final int chat_fragment=0x7f030002;
+        public static final int contacts_fragment=0x7f030003;
+        public static final int contacts_list_item=0x7f030004;
+        public static final int drawer_list_item=0x7f030005;
+        public static final int file_browser_fragment=0x7f030006;
+        public static final int file_browser_fragmentold=0x7f030007;
+        public static final int file_dialog_main=0x7f030008;
+        public static final int file_dialog_row=0x7f030009;
+        public static final int fragment_contacts=0x7f03000a;
+        public static final int ftp_transfers_fragment=0x7f03000b;
+        public static final int message_list_item=0x7f03000c;
+        public static final int settings_fragment=0x7f03000d;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
+        public static final int contacts=0x7f080000;
+        public static final int main=0x7f080001;
     }
     public static final class string {
-        public static final int action_settings=0x7f040009;
-        public static final int action_websearch=0x7f040003;
-        public static final int app_name=0x7f040000;
-        public static final int cancel=0x7f040010;
-        public static final int cant_read_folder=0x7f04000c;
-        public static final int create=0x7f040011;
-        public static final int drawer_close=0x7f040002;
-        public static final int drawer_open=0x7f040001;
-        public static final int err=0x7f040013;
-        public static final int file_name=0x7f04000f;
-        public static final int hello_world=0x7f040008;
-        public static final int location=0x7f04000b;
-        public static final int nnew=0x7f04000d;
-        public static final int no_data=0x7f040012;
-        public static final int pickerDeleteAllContacts=0x7f040006;
-        public static final int pickerNewContactHeader=0x7f040004;
-        public static final int pickerNewContactText=0x7f040005;
-        public static final int select=0x7f04000e;
-        public static final int title_activity_contacts=0x7f040007;
-        public static final int title_screen_detail=0x7f04000a;
+        public static final int action_settings=0x7f05000a;
+        public static final int action_websearch=0x7f050003;
+        public static final int app_name=0x7f050000;
+        public static final int cancel=0x7f050011;
+        public static final int cant_read_folder=0x7f05000d;
+        public static final int create=0x7f050012;
+        public static final int drawer_close=0x7f050002;
+        public static final int drawer_open=0x7f050001;
+        public static final int err=0x7f050014;
+        public static final int file_name=0x7f050010;
+        public static final int hello_world=0x7f050009;
+        public static final int location=0x7f05000c;
+        public static final int nnew=0x7f05000e;
+        public static final int no_data=0x7f050013;
+        public static final int pickerDeleteAllContacts=0x7f050006;
+        public static final int pickerNewContactHeader=0x7f050004;
+        public static final int pickerNewContactText=0x7f050005;
+        public static final int select=0x7f05000f;
+        public static final int title_activity_contacts=0x7f050007;
+        public static final int title_file_dialog=0x7f050008;
+        public static final int title_screen_detail=0x7f05000b;
     }
 }

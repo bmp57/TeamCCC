@@ -6,7 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,8 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import edu.nau.CS477.Classes.FileDialog;
+import edu.nau.CS477.Classes.SelectionMode;
 import com.example.android.navigationdrawerexample.R;
 
 import edu.nau.CS477.Chat.MessageAdapter;
@@ -35,6 +42,7 @@ public class ChatFragment extends Fragment {
     private MessageAdapter messageAdapter = null;
     
     private ListView listview;
+    private View rootView;
 
     
     public ChatFragment() {
@@ -46,7 +54,7 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.chat_fragment, container, false);
+        rootView = inflater.inflate(R.layout.chat_fragment, container, false);
         int i = getArguments().getInt(MENU_ITEM_NUMBER);
         String menuItem = getResources().getStringArray(R.array.main_navigation_menu)[i];
         co = getArguments().getParcelable("contactObject");
@@ -89,6 +97,21 @@ public class ChatFragment extends Fragment {
             	db.close();
             	chatET.setText("");
             	
+            }
+            
+        });
+        
+        final ImageButton mSendFile = (ImageButton) getActivity().findViewById(R.id.fileSendButton);
+        mSendFile.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	Bundle args = new Bundle();
+            	Fragment fragment = null;
+            	fragment = new FileBrowserFragment();
+                //args.putInt(FileBrowserFragment.MENU_ITEM_NUMBER, position); //pass contact arg
+                fragment.setArguments(args);
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, fragment).commit();
             }
             
         });
