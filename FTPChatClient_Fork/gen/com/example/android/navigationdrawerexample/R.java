@@ -9,7 +9,11 @@ package com.example.android.navigationdrawerexample;
 
 public final class R {
     public static final class array {
-        public static final int main_navigation_menu=0x7f060000;
+        public static final int chatColors=0x7f040002;
+        public static final int fontSize=0x7f040003;
+        public static final int friendList=0x7f040000;
+        public static final int friendlistValues=0x7f040001;
+        public static final int main_navigation_menu=0x7f040004;
     }
     public static final class attr {
     }
@@ -24,8 +28,8 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
         public static final int action_search=0x7f020000;
@@ -45,7 +49,7 @@ public final class R {
         public static final int CancelBtn=0x7f09000c;
         public static final int ChatMessageInput=0x7f09000e;
         public static final int SubmitBtn=0x7f09000b;
-        public static final int action_settings=0x7f090032;
+        public static final int action_settings=0x7f090031;
         public static final int bottomButtons=0x7f09000a;
         public static final int button1=0x7f09001f;
         public static final int chatET=0x7f09000f;
@@ -55,7 +59,6 @@ public final class R {
         public static final int chat_thumbnail=0x7f09002d;
         public static final int container=0x7f090003;
         public static final int content_frame=0x7f090001;
-        public static final int delete_contacts=0x7f090031;
         public static final int drawer_layout=0x7f090000;
         public static final int emailAddr=0x7f090018;
         public static final int emailEdit=0x7f090009;
@@ -115,26 +118,26 @@ public final class R {
         public static final int main=0x7f080001;
     }
     public static final class string {
-        public static final int action_settings=0x7f05000a;
-        public static final int action_websearch=0x7f050003;
-        public static final int app_name=0x7f050000;
-        public static final int cancel=0x7f050011;
-        public static final int cant_read_folder=0x7f05000d;
-        public static final int create=0x7f050012;
-        public static final int drawer_close=0x7f050002;
-        public static final int drawer_open=0x7f050001;
-        public static final int err=0x7f050014;
-        public static final int file_name=0x7f050010;
-        public static final int hello_world=0x7f050009;
-        public static final int location=0x7f05000c;
-        public static final int nnew=0x7f05000e;
-        public static final int no_data=0x7f050013;
-        public static final int pickerDeleteAllContacts=0x7f050006;
-        public static final int pickerNewContactHeader=0x7f050004;
-        public static final int pickerNewContactText=0x7f050005;
-        public static final int select=0x7f05000f;
-        public static final int title_activity_contacts=0x7f050007;
-        public static final int title_file_dialog=0x7f050008;
-        public static final int title_screen_detail=0x7f05000b;
+        public static final int action_settings=0x7f06000a;
+        public static final int action_websearch=0x7f060003;
+        public static final int app_name=0x7f060000;
+        public static final int cancel=0x7f060011;
+        public static final int cant_read_folder=0x7f06000d;
+        public static final int create=0x7f060012;
+        public static final int drawer_close=0x7f060002;
+        public static final int drawer_open=0x7f060001;
+        public static final int err=0x7f060014;
+        public static final int file_name=0x7f060010;
+        public static final int hello_world=0x7f060009;
+        public static final int location=0x7f06000c;
+        public static final int nnew=0x7f06000e;
+        public static final int no_data=0x7f060013;
+        public static final int pickerDeleteAllContacts=0x7f060006;
+        public static final int pickerNewContactHeader=0x7f060004;
+        public static final int pickerNewContactText=0x7f060005;
+        public static final int select=0x7f06000f;
+        public static final int title_activity_contacts=0x7f060007;
+        public static final int title_file_dialog=0x7f060008;
+        public static final int title_screen_detail=0x7f06000b;
     }
 }

@@ -6,6 +6,8 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +20,7 @@ import edu.nau.CS477.Contacts.ContactObject;
 /**
  * Fragment that appears in the "content_frame"
  */
-public class SettingsFragment extends Fragment {
+public class SettingsFragment extends PreferenceFragment {
     public static final String MENU_ITEM_NUMBER = "menu_number";
     private View mDeleteContactsButton;
     private ContactsDatabaseHandler db;
@@ -26,18 +28,23 @@ public class SettingsFragment extends Fragment {
         
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.settings_fragment, container, false);
+    public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		addPreferencesFromResource(R.layout.settings_fragment);
+	}
+    //@Override
+    //public View onCreateView(LayoutInflater inflater, ViewGroup container,
+     //       Bundle savedInstanceState) {
+        /**View rootView = inflater.inflate(R.layout.settings_fragment, container, false);
         
         int i = getArguments().getInt(MENU_ITEM_NUMBER);
         String menuItem = getResources().getStringArray(R.array.main_navigation_menu)[i];
         getActivity().setTitle(menuItem);
-        return rootView;
-    }
+        return rootView; */
+    	
+   // }
     
-    public void onActivityCreated(Bundle savedInstanceState){
+   /** public void onActivityCreated(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
     	mDeleteContactsButton = getActivity().findViewById(R.id.delete_contacts);
     	mDeleteContactsButton.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +77,7 @@ public class SettingsFragment extends Fragment {
 					
 				
             
-        }
+        } **/
     
    
 }
